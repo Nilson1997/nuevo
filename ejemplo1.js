@@ -1,14 +1,18 @@
+const _private=new WeakMap();
 class libros {
     constructor(autor, nombre, numerodepaginas){
-        this.autor=autor
-        this.nombre=nombre
-        this.numerodepaginas=numerodepaginas
+        const propiedades={
+        _autor:autor,
+        _nombre:nombre,
+        _numerodepaginas:numerodepaginas
+        }
+        _private.set(this,{propiedades})
     }
     set nombrelibro(nombre1){
-
+        return _private.get(this).propiedades['_nombre']=nombre1
     }
     get mostrarlibro(){
-        
+        return _private.get(this).propiedades['_nombre']=nombre1
     }
 }
 let libro1=new libros ("Nilson ", "cincuenta sombras ", "550")
